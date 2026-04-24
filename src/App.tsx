@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -15,8 +15,10 @@ import AdminDashboard from './pages/AdminDashboard'
 import NotFound from './pages/NotFound'
 
 function App() {
+  const Router = import.meta.env.BASE_URL === '/Radhabakery/' ? HashRouter : BrowserRouter
+
   return (
-    <BrowserRouter>
+    <Router>
       <AuthProvider>
         <ScrollToTop />
         <div className="relative min-h-screen overflow-x-hidden bg-canvas text-ink">
@@ -46,7 +48,7 @@ function App() {
           <Footer />
         </div>
       </AuthProvider>
-    </BrowserRouter>
+    </Router>
   )
 }
 
