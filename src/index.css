@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color: #2b2b2b;
+    background-color: #fff9fc;
+  }
+
+  * {
+    border-color: rgba(255, 178, 178, 0.24);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-canvas font-body text-ink antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(255, 199, 255, 0.5), transparent 34%),
+      radial-gradient(circle at top right, rgba(255, 178, 178, 0.28), transparent 30%),
+      linear-gradient(180deg, #fffdfd 0%, #fff9fc 50%, #f5e8e8 100%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading text-ink;
+    letter-spacing: -0.04em;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  a {
+    @apply transition-colors duration-300;
+  }
+
+  ::selection {
+    background: rgba(255, 199, 255, 0.48);
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-space {
+    @apply py-16 sm:py-20;
+  }
+
+  .card-surface {
+    @apply rounded-[30px] border border-white/80 bg-white/80 shadow-soft backdrop-blur-md;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center rounded-full border border-petal/60 bg-petal/30 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-ink/70;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-blush px-6 py-3 text-sm font-semibold text-ink shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-petal;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-blush/30 bg-white/90 px-6 py-3 text-sm font-semibold text-ink shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-butter/70;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-ink/70 transition duration-300 hover:bg-petal/20 hover:text-ink;
+  }
+
+  .input-base {
+    @apply w-full rounded-2xl border border-blush/30 bg-white px-4 py-3 text-sm text-ink outline-none transition duration-300 placeholder:text-ink/35 focus:border-petal focus:ring-2 focus:ring-petal/40;
+  }
+}
